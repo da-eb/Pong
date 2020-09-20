@@ -7,7 +7,7 @@ import winsound
 import random
 
 wind = turtle.Screen()
-wind.title("Pong by David Ebube")
+wind.title("Ping_Pong by David Ebube")
 wind.bgcolor("black")
 wind.setup(width=800, height=600)
 wind.tracer(0)
@@ -52,10 +52,20 @@ ball.goto(0, 0)
 ball.dx = 0.3
 ball.dy = -0.3
 
-def color_change():
-	ball.color("red")
-	paddle_a.color("blue")
-	paddle_b.color("cyan")
+
+# random colour change
+def random_color_change():
+	r = random.random()
+	g = random.random()
+	b = random.random()
+
+	paddle_a.color(r, g, b)
+	paddle_b.color(b, r, g)
+	ball.color(r, b, b)
+	wind.bgcolor(r, r, b)
+
+def
+
 
 # pen
 pen = turtle.Turtle()
@@ -89,10 +99,10 @@ def paddle_b_down():
 	y -= 20
 	paddle_b.sety(y)
 
-	
+
 
 # up movement Key binding
-wind.listen() 
+wind.listen()
 # listens for keyboard input
 wind.onkeypress(paddle_a_up, "w")
 wind.onkeypress(paddle_a_down, "s")
@@ -108,7 +118,7 @@ wind.onkeypress(paddle_b_down, "Down")
 # Main game loop
 while True:
 	wind.update()
-	
+
 	# Move the ball
 	ball.setx(ball.xcor() + ball.dx)
 	ball.sety(ball.ycor() + ball.dy)
@@ -118,7 +128,7 @@ while True:
 		ball.sety(290)
 		ball.dy *= -1
 		winsound.PlaySound("Ball_Bounce.wav", winsound.SND_ASYNC)
-		
+
 	if ball.ycor() < -290:
 		ball.sety(-290)
 		ball.dy *= -1
@@ -147,18 +157,21 @@ while True:
 		ball.setx(340)
 		ball.dx *= -1
 
-	if (score_a == 5 and score_b != score_a)  or score_b == 5 and score_a != score_b:
-		temp1 = paddle_a
-		paddle_a = paddle_b
-		paddle_b = temp1
 
-		color_change()
+	if (score_a is 5 and score_a > score_b and score_a != score_b ) :
+
+		# temp1 = paddle_a
+		# paddle_a = paddle_b
+		# paddle_b = temp1
+
+		random_color_change()
+		
 
 	# score = 5 *
-	# for 
+	# for
 
-	
-		
+
+
 
 	# Background and Ball color change
 
@@ -176,4 +189,3 @@ while True:
 	# elif (score_b == 10):
 	# 	wind.clear()
 	# 	pen
-	
